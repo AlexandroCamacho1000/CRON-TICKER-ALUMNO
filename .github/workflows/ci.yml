@@ -24,10 +24,9 @@ jobs:
       - name: Mostrar Variables
         run: |
           echo "App: ${APP_NAME}, Node: ${NODE_VERSION}"
+          echo "Build Directory: ${BUILD_DIR}"
 
-      
       - name: Construir
         run: npm run build
         env:
           APP_VERSION: '2.0.0'
-        
