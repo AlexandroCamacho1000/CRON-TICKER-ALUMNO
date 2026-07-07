@@ -28,13 +28,17 @@ jobs:
 
       - name: Show Github Variables
         run: |
-          echo "App version: ${{ vars.APP_VERSION }}"
+          echo "App Version: ${{ vars.APP_VERSION }}"
 
       - name: Show Node Version
         run: |
-          echo "Node version: ${{ vars.APP_NODE_VERSION }}"
+          echo "Node Version: ${{ vars.APP_NODE_VERSION }}"
 
       - name: Build
         run: npm run build
         env:
           APP_VERSION: '2.0.0'
+
+      - name: Deploy
+        run: |
+          echo "Deploying with key ${{ secrets.API_KEY }}"
