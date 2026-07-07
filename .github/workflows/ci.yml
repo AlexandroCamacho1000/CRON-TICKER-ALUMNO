@@ -21,12 +21,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Mostrar Variables
+      - name: Show Variables
         run: |
-          echo "App: ${APP_NAME}, Node: ${NODE_VERSION}"
-          echo "Build Directory: ${BUILD_DIR}"
+          echo "App: ${{ env.APP_NAME }}, Node: ${{ env.NODE_VERSION }}"
+          echo "Build Directory: ${{ env.BUILD_DIR }}"
 
-      - name: Construir
+      - name: Show Github Variables
+        run: |
+          echo "App version: ${{ vars.APP_VERSION }}"
+
+      - name: Show Node Version
+        run: |
+          echo "Node version: ${{ vars.APP_NODE_VERSION }}"
+
+      - name: Build
         run: npm run build
         env:
           APP_VERSION: '2.0.0'
